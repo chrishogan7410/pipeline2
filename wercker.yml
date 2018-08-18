@@ -43,3 +43,12 @@ build:
         name: go test
         code: |
           go test
+
+deploy:
+  steps:
+    - internal/docker-push:
+        username: $DUSERNAME # Registry username
+        password: $DPASSWORD # Registry password
+        registry: https://hub.docker.com # Docker registry
+        repository: $DUSERNAME/pipeline2
+        tag: latest
